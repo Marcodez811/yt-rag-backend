@@ -1,6 +1,6 @@
 from os import getenv, path
 from pathlib import Path
-from django.core.management.utils import get_random_secret_key 
+from django.core.management.utils import get_random_secret_key
 import dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,7 +14,8 @@ if path.isfile(env_file):
 
 SECRET_KEY = getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 DEBUG = getenv('DEBUG', False) == 'True'
-ALLOWED_HOSTS = getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+ALLOWED_HOSTS = getenv('DJANGO_ALLOWED_HOSTS',
+                       '127.0.0.1,localhost').split(',')
 
 # Application definition
 
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
     'djoser',
     'social_django',
     'users',
+    'obot_api'
 ]
 
 MIDDLEWARE = [
